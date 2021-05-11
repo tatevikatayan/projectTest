@@ -49,5 +49,41 @@ $(document).ready(function(){
             }
         ]
     });
- 
+    $('#myForm').validate({
+        rules: {
+            name:{
+                required: true,
+                minlength: 3
+            },
+            surname:{
+                required: true,
+                minlength: 3
+            },
+            email:{
+                required: true,
+                email: true
+            },
+            message:{
+                required: true,
+                minlength: 15
+            }
+        },
+        messages:{
+            name:{
+                required: "Поле обязательно для заполнения",
+                minlength: jQuery.format("Длина имени не должно быть меньше {3} букв")
+            },
+            surname:{
+                required: "Поле обязательно для заполнения",
+                minlength: jQuery.format("Длина фамилии не должно быть меньше {3} букв")
+            },
+            email:{
+                required:  "Поле обязательно для заполнения",
+            },
+            message:{
+                required:"Поле обязательно для заполнения",
+                minlength: jQuery.format("Длина сообщения не должно быть меньше {15} букв")
+            },
+        }
+    });
 });
